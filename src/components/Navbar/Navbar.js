@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ setSignInType }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const showModal = () => {
+  const showModal = (type) => {
     setModalIsOpen(!modalIsOpen);
+    setSignInType(type);
   };
 
   return (
@@ -20,8 +21,8 @@ const Navbar = () => {
           <div>Logo</div>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <button onClick={showModal}>Login</button>
-          <button onClick={showModal}>Sign Up</button>
+          <button onClick={() => showModal("login")}>Login</button>
+          <button onClick={() => showModal("register")}>Sign Up</button>
         </div>
       </div>
     </nav>
