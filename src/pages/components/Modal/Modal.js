@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Modal.module.scss";
 
 //card
+
 const Modal = () => {
   return (
     <article>
@@ -11,7 +12,7 @@ const Modal = () => {
 
           <label className={styles.modal__subheader}>Email</label>
           <input className={styles.modal__input} type="email" placeholder="Email"></input>
-          
+
           <label className={styles.modal__subheader}>Password</label>
           <input className={styles.modal__input} type="password" placeholder="Secret Password "></input>
         </form>
