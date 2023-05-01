@@ -1,11 +1,15 @@
+import { useState } from "react";
 import Head from "next/head";
-import { Inter } from "next/font/google";
-import Modal from "./components/Modal/Modal";
-import Navbar from "./components/Navbar/Navbar";
+import { JetBrains_Mono } from "next/font/google";
+import Navbar from "../components/Navbar/Navbar";
+import Register from "@/components/Auth/Register";
+import Login from "@/components/Auth/Login";
 
-const inter = Inter({ subsets: ["latin"] });
+const jetbrains = JetBrains_Mono({ subsets: ["latin"] });
 
 export default function Home() {
+  const [signInType, setSignInType] = useState(null);
+
   return (
     <>
       <Head>
@@ -14,9 +18,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Navbar />
-        <Modal />
+      <main className={jetbrains.className}>
+        <Navbar setSignInType={setSignInType} />
+        {signInType === "register" ? <Register /> : <Login />}
       </main>
     </>
   );
