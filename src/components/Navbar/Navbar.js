@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-const Navbar = ({ setSignInType }) => {
+const Navbar = ({ setSignInType, showModal }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const showModal = (type) => {
     setModalIsOpen(!modalIsOpen);
     setSignInType(type);
   };
-
+  
   return (
     <nav style={{ backgroundColor: "lightBlue" }}>
       <div

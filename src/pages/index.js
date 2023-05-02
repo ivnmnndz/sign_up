@@ -8,7 +8,12 @@ import Login from "@/components/Auth/Login";
 const jetbrains = JetBrains_Mono({ subsets: ["latin"] });
 
 export default function Home() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [signInType, setSignInType] = useState(null);
+  
+  const showModal = () => {
+    setModalIsOpen(!modalIsOpen);
+  };
 
   return (
     <>
@@ -19,7 +24,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={jetbrains.className}>
-        <Navbar setSignInType={setSignInType} />
+        <Navbar showModal={showModal} setSignInType={setSignInType} />
+        {modalIsOpen && <Modal showModal={showModal} />}
         {signInType === "register" ? <Register /> : <Login />}
       </main>
     </>

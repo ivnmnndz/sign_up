@@ -1,27 +1,40 @@
-
 .modal {
-    margin-top: 15%;
-    height: 100vh;
-    width: 100vw;
-    padding: 0 2%;
-    background-color: rgb(166, 212, 241);
-    border-radius: 20px 20px 0 0;
-    &__header {
-        font-size: 24px;
-        text-align: center;
-        padding: 10% 0;
-        letter-spacing: 10px;
+  height: 80vh;
+  width: 100vw;
+  padding: 0 2%;
+  background-color: rgb(166, 212, 241);
+  border-radius: 20px 20px 0 0;
+  &__header {
+    font-size: 24px;
+    text-align: center;
+    padding: 10% 0;
+    letter-spacing: 10px;
+  }
+  &__subheader {
+    font-size: 18px;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+  &__input {
+    padding: 4%;
+    margin: 4%;
+    border-radius: 20px;
+    &:focus {
+        background-color: rgb(213, 247, 213);
     }
-    &__subheader {
-        font-size: 18px;
+    &:hover {
+        border: 4px solid darkblue;
     }
-    &__form {
-        display: flex;
-        flex-direction: column;
-    }
-    &__input {
-        padding: 4%;
-        margin: 4%;
-        border-radius: 20px;
-    }
+    
+
+  }
+}
+
+.backdrop {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
