@@ -2,10 +2,17 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import Modal from "./components/Modal/Modal";
 import Navbar from "./components/Navbar/Navbar";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const showModal = () => {
+    setModalIsOpen(!modalIsOpen);
+  };
+
   return (
     <>
       <Head>
@@ -15,8 +22,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Navbar />
-        <Modal />
+        <Navbar showModal={showModal} />
+        {modalIsOpen && <Modal showModal={showModal} />}
       </main>
     </>
   );
