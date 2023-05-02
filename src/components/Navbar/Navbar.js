@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Navbar = ({ setSignInType }) => {
+const Navbar = ({ setSignInType, showModal }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const showModal = (type) => {
@@ -8,7 +8,7 @@ const Navbar = ({ setSignInType }) => {
     setSignInType(type);
   };
 
-const Navbar = ({showModal}) => {
+const Navbar = () => {
   
   return (
     <nav style={{ backgroundColor: "lightBlue" }}>
