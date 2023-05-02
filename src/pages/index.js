@@ -4,15 +4,26 @@ import { JetBrains_Mono } from "next/font/google";
 import Navbar from "../components/Navbar/Navbar";
 import Register from "@/components/Auth/Register";
 import Login from "@/components/Auth/Login";
+import Modal from "@/components/Modal/Modal";
 
 const jetbrains = JetBrains_Mono({ subsets: ["latin"] });
 
 export default function Home() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [signInType, setSignInType] = useState(null);
-  
-  const showModal = () => {
-    setModalIsOpen(!modalIsOpen);
+
+  const showModal = (type) => {
+    setModalIsOpen(true);
+    setSignInType(type);
+  };
+  const renderModal = () => {
+    if (signInType === "register") {
+      return <Register />;
+    } else if (signInType === "login") {
+      return <Login />;
+    } else {
+      return null;
+    }
   };
 
   return (
@@ -24,9 +35,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={jetbrains.className}>
-        <Navbar showModal={showModal} setSignInType={setSignInType} />
-        {modalIsOpen && <Modal showModal={showModal} />}
-        {signInType === "register" ? <Register /> : <Login />}
+        <Navbar showModal={showModal} />
+        {modalIsOpen && (
+          <Modal showModal={showModal} setModalIsOpen={setModalIsOpen}>
+            {renderModal()}
+          </Modal>
+        )}
       </main>
     </>
   );
