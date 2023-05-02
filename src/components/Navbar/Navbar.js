@@ -7,8 +7,6 @@ const Navbar = ({ setSignInType, showModal }) => {
     setModalIsOpen(!modalIsOpen);
     setSignInType(type);
   };
-
-const Navbar = () => {
   
   return (
     <nav style={{ backgroundColor: "lightBlue" }}>
